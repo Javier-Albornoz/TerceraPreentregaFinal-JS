@@ -75,7 +75,9 @@ while(opGeneral != 0){
                     
                     break;
             }
-            alert('Programa Finalizado :D')
+            alert('Programa Finalizado :D');
+            opGeneral = 0;
+            break;
         case 2:
             //Lista de compra de productos inteligentes 
 const cantidadProductos = Number (prompt('Ingresa la cantidad de productos a comprar:'));
@@ -213,23 +215,24 @@ let opcion;
              break;
      }
      
+     
     }
     //Llamados a las funciones e informamos cuando se tenga todo comprado
  
     alert('Buenísimo, ya tenes todo comprado!!!')
     contProductos(contadorProductos);
     contarSeccion();
-    precios();         
+    precios();    
+    opGeneral = 0;     
                 break;
     
         default:
-        opGeneral = Number (prompt(`Elegi una de las opciones:
-        1-Calculadora de IMC y PGC(índice de masa corporal/Porcentaje de grasa corporal)
-        2-Acceder a Lista de Compras FITT Automática
-        
-        0-No deseo hacer ninguna de las dos.`));
-            break;
-    }
+            opGeneral = Number (prompt(`La opcion ingresada no es correcta:
+1-Calculadora de IMC y PGC(índice de masa corporal/Porcentaje de grasa corporal)
+2-Acceder a Lista de Compras FITT Automática
 
-}
+0-No deseo hacer ninguna de las dos.`));
+        
+            break;
+    }}
 alert(`Que tengas un muy buen día`)
