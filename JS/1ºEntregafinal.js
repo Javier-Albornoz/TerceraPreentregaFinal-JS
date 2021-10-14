@@ -92,7 +92,7 @@ let contadorProductos = 0;
 let precio = 0;
 let costoTotal = 0;
 let productos = {};
-let newProductos = [];
+const newProductos = [];
 let listaCompras = '';
 //creacion de los constructores
 class Producto {
@@ -222,19 +222,33 @@ let opcion;
      }
 }
 //imprimimos los productos 
-function printProductos(){
-    newProductos.forEach((producto) => {
-    //clono el template 
-    let clon = document.importNode(template);
-    //itero sobre cada entrada de un nuevo producto
-    clon.querySelector('#nombre').textContent = producto.nombreProducto;
-    clon.querySelector('#precio').textContent = producto.precioProducto;
-    clon.querySelector('#seccion').textContent = producto.seccionProducto;
-    feedback.appendChild(clon);
+// function printProductos(){
+//     newProductos.forEach((producto) => {
+//     //clono el template 
+//     let clon = document.importNode(template);
+//     //itero sobre cada entrada de un nuevo producto
+//     clon.querySelector('#nombre').textContent = producto.nombre;
+//     clon.querySelector('#precio').textContent = producto.precio;
+//     clon.querySelector('#seccion').textContent = producto.seccion;
+//     feedback.appendChild(clon);
 
-});
+// });
 
+// }
+function printProductos() {
+	newProductos.forEach((producto) => {
+		// creo copia del template
+		let clon = document.importNode(template);
+
+		// uso del metodo forEach para iterar sobre el array de usuarios, y rellenar el html con esos datos
+		clon.querySelector("#nombre").textContent = producto.nombre;
+		clon.querySelector("#precio").textContent = producto.precio;
+		clon.querySelector("#seccion").textContent = producto.seccion;
+
+		feedback.appendChild(clon);
+	});
 }
+
     //Llamados a las funciones e informamos cuando se tenga todo comprado
  
     alert('Buenísimo, ya tenes todo comprado!!!')
