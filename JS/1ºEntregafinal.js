@@ -20,7 +20,12 @@ opGeneral = Number (prompt(`En esta seccion tenes acceso a:
 while(opGeneral != 0){
     switch (opGeneral) {
         case 1:
-            //declaracion de funciones de mi calculadora         
+            //declaracion de funciones de mi calculadora 
+            const template = document.querySelector('#template').content;
+            const feedback = document.querySelector('.feedback');
+            const valores = [];
+
+
             function imc(peso, altura) {
                 const IMC = peso / (altura ** 2);
                 alert (`Tu IMC es: ${IMC.toFixed(1)} `)
