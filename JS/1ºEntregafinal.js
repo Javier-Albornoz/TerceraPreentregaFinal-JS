@@ -24,6 +24,14 @@ while(opGeneral != 0){
             const template = document.querySelector('#template').content;
             const feedback = document.querySelector('.feedback');
             const valores = [];
+            class valoresUsuario {
+                constructor(imc,pgc){
+                    this.imc = imc;
+                    this.pgc = pgc;
+
+                }
+
+            };
 
 
             function imc(peso, altura) {
