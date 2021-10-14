@@ -21,19 +21,6 @@ while(opGeneral != 0){
     switch (opGeneral) {
         case 1:
             //declaracion de funciones de mi calculadora 
-            const template = document.querySelector('#template').content;
-            const feedback = document.querySelector('.feedback');
-            const valores = [];
-            class valoresUsuario {
-                constructor(imc,pgc){
-                    this.imc = imc;
-                    this.pgc = pgc;
-
-                }
-
-            };
-
-
             function imc(peso, altura) {
                 const IMC = peso / (altura ** 2);
                 alert (`Tu IMC es: ${IMC.toFixed(1)} `)
@@ -92,8 +79,13 @@ while(opGeneral != 0){
             opGeneral = 0;
             break;
         case 2:
-            //Lista de compra de productos inteligentes 
+                        //Lista de compra de productos inteligentes 
+ //accedo al Html
+const template = document.querySelector('#template').content;
+const feedback = document.querySelector('.feedback');                   
 const cantidadProductos = Number (prompt('Ingresa la cantidad de productos a comprar:'));
+//URL para las imagenes de seccion
+const l = 'http://greenarea.me/wp-content/uploads/2016/02/Feng-Shui-Basics-Limpieza-productos-de-limpieza-C_Okea-1200x800.jpg'
 // Declaracion de variables globales
 let cantProductos = 0;
 let contadorProductos = 0;
@@ -118,6 +110,7 @@ class Producto {
 for (let j = 1; j <= cantidadProductos; j++) {
     const producto = prompt(`Ingresa el producto nº ${j}`);
     const precio = Number (prompt(`Ingresa el precio del producto ${j}`));
+    //recordar condicionar la entrada de solo numeros
     let seccion;
     do {
         seccion = prompt(`Ingrese la inicial la seccion correspondiente ya sea:
@@ -227,15 +220,30 @@ let opcion;
              opcion = undefined;
              break;
      }
-     
-     
-    }
+}
+//imprimimos los productos 
+function printProductos(){
+    newProductos.forEach((producto) => {
+    //clono el template 
+    let clon = document.importNode(template);
+    //itero sobre cada entrada de un nuevo producto
+    clon.querySelector('#nombre').textContent = producto.nombreProducto;
+    clon.querySelector('#precio').textContent = producto.precioProducto;
+    clon.querySelector('#seccion').textContent = producto.seccionProducto;
+    feedback.appendChild(clon);
+
+});
+
+}
     //Llamados a las funciones e informamos cuando se tenga todo comprado
  
     alert('Buenísimo, ya tenes todo comprado!!!')
+   
     contProductos(contadorProductos);
     contarSeccion();
-    precios();    
+    precios();
+    printProductos(); 
+      
     opGeneral = 0;     
                 break;
     
@@ -243,9 +251,9 @@ let opcion;
             opGeneral = Number (prompt(`La opcion ingresada no es correcta:
 1-Calculadora de IMC y PGC(índice de masa corporal/Porcentaje de grasa corporal)
 2-Acceder a Lista de Compras FITT Automática
-
 0-No deseo hacer ninguna de las dos.`));
         
             break;
     }}
+     
 alert(`Que tengas un muy buen día`)
