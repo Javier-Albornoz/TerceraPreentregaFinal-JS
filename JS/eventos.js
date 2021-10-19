@@ -60,8 +60,8 @@ function submitForm(e){
     } else{
     const li = document.createElement('li');
     li.classList.add('row');
-    li.dataset = listaP.length;
-    li.innerHTML = `<p class="mb-0 col-6">${inputNombre.value} $${inputPrecio.value}</p><i class="fas fa-pen col1"></i><i class="fas fa-trash col-1"></i>`
+    li.dataset.id = listaP.length;
+    li.innerHTML = `<p class="mb-0 col-6">${inputNombre.value} $${inputPrecio.value}</p><i class="fas fa-pen col-1"></i><i class="fas fa-trash col-1"></i>`
     if(inputNombre.value){
         listaProductos.appendChild(li)
     }
