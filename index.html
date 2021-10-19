@@ -24,7 +24,7 @@
 <h2 class="text-center">DOM & EVENTOS <br>Bienvenid@s</h2>
 
 <main class="container" id="main">
-    <section class="row" id="main-section">
+    <section class="row mb-4" id="main-section">
         <div class="col">
             <h3>Ingresa los productos que necesitas😃</h3>
            <form id="form" action="">
@@ -41,8 +41,10 @@
                 <option value="B">Bebibles</option>
                 <option value="O">Otros</option>
               </select>
+              <button class="btn btn-danger mt-3 d-none" id="btn-cancelar">Cancelar</button>
+              <input class="btn btn-dark btn-primary mt-3" type="submit" value="Enviar" id="btn-enviar">
+           </form>
 
-               <input class="btn btn-dark btn-primary mt-3" type="submit" value="Enviar" id="btn-enviar">
         </div>
         <div class="col">
             <h3 class="text-center">Listado de Productos a adquirir</h3>
@@ -55,7 +57,7 @@
 </main>
 
 
-<div class="feedback"></div>
+<!-- <div class="feedback"></div>
 <template id ='template'>
  <div class="list">
     <h4>Estos son tus Productos comprados/a comprar:</h4>
@@ -72,7 +74,7 @@
         </li>
     </ul>
  </div>
-</template>
+</template> -->
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
