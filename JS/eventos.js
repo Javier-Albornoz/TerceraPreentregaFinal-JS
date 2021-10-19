@@ -93,7 +93,7 @@ listaProductos.addEventListener('click', clickProductos);
 function clickProductos(e){
     if(e.target.classList.contains('fa-trash')){
         const index = listaP.findIndex(producto => producto.id == e.target.parentElement.dataset.id);
-        if(index){
+        if(index || index === 0){
             listaP.splice(index, 1);
             localStorage.setItem('listaP', JSON.stringify(listaP));
             e.target.parentElement.remove();
