@@ -29,6 +29,8 @@ function submitForm(e){
     if (edit) {
         edit= false;
         productoEdit.nombre = inputNombre.value;
+        productoEdit.precio = inputPrecio.value;
+        productoEdit.seccion = inputSeccion.value;
         const nuevosProductos = listaP.map(producto =>{
             if(producto.id === productoEdit.id){
                 return productoEdit;
@@ -90,6 +92,7 @@ function clickProductos(e){
         if(productoEdit){
             inputNombre.value = productoEdit.nombre;
             inputPrecio.value = productoEdit.precio;
+            inputSeccion.value = productoEdit.value;
             btnCancelar.classList.toggle('d-none');
             btnForm.value = 'Guardar';
         }
