@@ -1,26 +1,10 @@
-// const template = document.querySelector('#template').content;
-// const feedback = document.querySelector('.feedback');
-const l = 'http://greenarea.me/wp-content/uploads/2016/02/Feng-Shui-Basics-Limpieza-productos-de-limpieza-C_Okea-1200x800.jpg'
+//Proyecto de pagina web fitt, contara con distintas funciones, calculadoras, listas inteligentes
+//y un pequeño shop de suplementos(este y la calculadora los agregare para la entrega final)
 // Declaracion de variables globales
 let cantProductos = 0;
 let costoTotal = 0;
 const newProductos = [];
 let listaCompras = '';
-//imprimimos los productos
-// function printProductos() {
-//     newProductos.forEach((producto) => {
-// 		// creo copia del template
-// 		let clon = document.importNode(template,true);
-
-// 		// uso del metodo forEach para iterar sobre el array de usuarios, y rellenar el html con esos datos
-// 		clon.querySelector("#nombre").textContent = producto.nombre;
-// 		clon.querySelector("#precio").textContent = producto.precio;
-// 		clon.querySelector("#seccion").textContent = producto.seccion;
-
-// 		feedback.appendChild(clon);
-// 	});
-// }
-//eventos
 const inputNombre = document.querySelector('#nombre');
 const inputPrecio = document.querySelector('#precio');
 const inputSeccion = document.querySelector('#seccion')
@@ -31,15 +15,15 @@ const btnCancelar = document.querySelector('#btn-cancelar');
 let listaP;
 let edit = false;
 let productoEdit = {};
+//cuando cargo la pagina refrezco el storage por si quedo algo guardado
 document.addEventListener('DOMContentLoaded', function(){
     const productosStorage = JSON.parse(localStorage.getItem('listaP'));
     listaP = productosStorage || [];
     cargarHtml(listaP);
-    // console.log('doc cargado');
 })
-
+//escucho al boton enviar
 form.addEventListener('submit', submitForm);
-
+//funcion para crear el producto a comprar
 function submitForm(e){
     e.preventDefault();
     if (edit) {
@@ -76,7 +60,7 @@ function submitForm(e){
 }
     form.reset();
 }
-
+//funcion para imprimir en el html
 function cargarHtml(listadoProductos){
     listaProductos.innerHTML = '';
     // console.log(listadoProductos);
@@ -89,7 +73,7 @@ function cargarHtml(listadoProductos){
     });
 }
 listaProductos.addEventListener('click', clickProductos);
-
+//funciones para editar y/o eliminar un producto de la lista
 function clickProductos(e){
     if(e.target.classList.contains('fa-trash')){
         const index = listaP.findIndex(producto => producto.id == e.target.parentElement.dataset.id);
@@ -105,12 +89,12 @@ function clickProductos(e){
         productoEdit = listaP.find(producto => producto.id == e.target.parentElement.dataset.id);
         if(productoEdit){
             inputNombre.value = productoEdit.nombre;
+            inputPrecio.value = productoEdit.precio;
             btnCancelar.classList.toggle('d-none');
             btnForm.value = 'Guardar';
         }
     }
+};
 
-}
 
-    //Llamados a las funciones e informamos cuando se tenga todo comprado
 

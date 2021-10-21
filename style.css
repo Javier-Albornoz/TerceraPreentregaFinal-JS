@@ -9,22 +9,38 @@ body{
     flex-direction: column;
 }
 .logo{
-    width: 100px;
+    width: 300px;
 }
 header{
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     align-items: center;
     flex-direction: column;
 }
 h1{
-    color: white;
-    padding: 20px;
+    color: rgb(255, 255, 255);
+    padding: 15px;
     font-family:'Times New Roman', Times, serif;
 }
-h2, h3{
-    padding: 30px;
+h3{
+    padding: 10px;
     font-family: 'Times New Roman', Times, serif;
+    color: white;
 }
+h2{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 30px;
+}
+.container{
+    background-color: rgba(133, 129, 129, 0.795);
+    border: 5px solid rgba(224, 6, 6, 0.781);
+    border-radius: 7px;
+}
+.recepcion{
+    background-color: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;}
