@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function(){
     listaP = productosStorage || [];
     cargarHtml(listaP);
 })
+$(document).ready(agregarImagen('listaP'));
 //escucho al boton enviar
 form.addEventListener('submit', submitForm);
 //funcion para crear el producto a comprar
@@ -59,27 +60,32 @@ function submitForm(e){
             precio: inputPrecio.value,
             seccion: inputSeccion.value
         };
-        //añadiendo jQuery
-        //funcion agregar imagen
-    
-            let img = document.createElement('img');
-            img.classList.add('imgCategoria')
-
-            if (producto.seccion === 'L'){
-                img.setAttribute('src', 'images/limpieza.jpg')
-            } if(producto.seccion === 'C'){
-                img.setAttribute('src','images/comestibles.jpg')
-            }if(producto.seccion === 'B'){
-                img.setAttribute('src', 'images/bebibles.jpg')
-            } if(producto.seccion === 'O'){
-                img.setAttribute('src', 'images/otros.jpg')
-            }
-            $('.lista').prepend(img);
+        agregarImagen(producto.seccion);
+        
+        
         
         listaP.push(producto);
         localStorage.setItem('listaP', JSON.stringify(listaP));
     }
     form.reset();
+}
+//añadiendo jQuery
+//funcion agregar imagen
+function agregarImagen(seccion){
+    let img = document.createElement('img');
+    img.classList.add('imgCategoria')
+
+    if (seccion === 'L'){
+        img.setAttribute('src', 'images/limpieza.jpg')
+    } if(seccion === 'C'){
+        img.setAttribute('src','images/comestibles.jpg')
+    }if(seccion === 'B'){
+        img.setAttribute('src', 'images/bebibles.jpg')
+    } if(seccion === 'O'){
+        img.setAttribute('src', 'images/otros.jpg')
+    }
+    $('.lista').last().prepend(img);
+    
 }
 //funcion para imprimir en el html
 function cargarHtml(listadoProductos){
@@ -89,8 +95,9 @@ function cargarHtml(listadoProductos){
         const li = document.createElement('li');
         li.classList.add('row')
         li.dataset.id = producto.id;
-        li.innerHTML = `<p class="mb-0 col-6">${producto.nombre} $${producto.precio}</p><i class="fas fa-pen col-1"></i><i class="fas fa-trash col-1"></i>`
+        li.innerHTML = `<p class="mb-0 col-6 lista"><strong>${producto.nombre}</strong> $${producto.precio}</p><i class="fas fa-pen col-1"></i><i class="fas fa-trash col-1"></i>`
         listaProductos.appendChild(li)
+        agregarImagen(producto.seccion)
     });
 }
 listaProductos.addEventListener('click', clickProductos);
