@@ -44,3 +44,22 @@ h2{
     width: 100%;
     display: flex;
     justify-content: center;}
+#lista-productos{
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+  
+}
+.lista{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+
+}
+.row{
+    justify-content: space-evenly;
+}
+.imgCategoria{
+    width:30%;
+    border-radius: 30px;
+    padding: 7px;
+}

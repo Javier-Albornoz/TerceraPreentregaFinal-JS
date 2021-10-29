@@ -15,8 +15,6 @@ const btnCancelar = document.querySelector('#btn-cancelar');
 let listaP;
 let edit = false;
 let productoEdit = {};
-
-
 //cuando cargo la pagina refrezco el storage por si quedo algo guardado
 document.addEventListener('DOMContentLoaded', function(){
     const productosStorage = JSON.parse(localStorage.getItem('listaP'));
@@ -42,43 +40,26 @@ function submitForm(e){
         });
         localStorage.setItem('listaP', JSON.stringify(nuevosProductos));
         cargarHtml(nuevosProductos);
-        
+
         btnCancelar.classList.toggle('d-none');
         btnForm.value ='Enviar';
     } else{
-        const li = document.createElement('li');
-        li.classList.add('row');
-        li.dataset.id = listaP.length;
-        li.innerHTML = `<p class="mb-0 col-6 lista"><strong>${inputNombre.value}</strong> $${inputPrecio.value}</p><i class="fas fa-pen col-1"></i><i class="fas fa-trash col-1"></i>`
-        if(inputNombre.value){
-            listaProductos.appendChild(li)
-        }
-        let producto = {
-            id: listaP.length,
-            nombre: inputNombre.value,
-            precio: inputPrecio.value,
-            seccion: inputSeccion.value
-        };
-        //añadiendo jQuery
-        //funcion agregar imagen
-    
-            let img = document.createElement('img');
-            img.classList.add('imgCategoria')
-
-            if (producto.seccion === 'L'){
-                img.setAttribute('src', 'images/limpieza.jpg')
-            } if(producto.seccion === 'C'){
-                img.setAttribute('src','images/comestibles.jpg')
-            }if(producto.seccion === 'B'){
-                img.setAttribute('src', 'images/bebibles.jpg')
-            } if(producto.seccion === 'O'){
-                img.setAttribute('src', 'images/otros.jpg')
-            }
-            $('.lista').prepend(img);
-        
-        listaP.push(producto);
-        localStorage.setItem('listaP', JSON.stringify(listaP));
+    const li = document.createElement('li');
+    li.classList.add('row');
+    li.dataset.id = listaP.length;
+    li.innerHTML = `<p class="mb-0 col-6">${inputNombre.value} $${inputPrecio.value}</p><i class="fas fa-pen col-1"></i><i class="fas fa-trash col-1"></i>`
+    if(inputNombre.value){
+        listaProductos.appendChild(li)
     }
+    let producto = {
+        id: listaP.length,
+        nombre: inputNombre.value,
+        precio: inputPrecio.value,
+        seccion: inputSeccion.value
+    };
+    listaP.push(producto);
+    localStorage.setItem('listaP', JSON.stringify(listaP));
+}
     form.reset();
 }
 //funcion para imprimir en el html
@@ -117,6 +98,3 @@ function clickProductos(e){
         }
     }
 };
-
-
-
