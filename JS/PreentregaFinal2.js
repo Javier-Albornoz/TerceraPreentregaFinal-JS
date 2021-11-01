@@ -24,6 +24,17 @@ document.addEventListener('DOMContentLoaded', function(){
     cargarHtml(listaP);
 })
 $(document).ready(agregarImagen('listaP'));
+//ANIMACIONES
+$('h1').hide().fadeIn(3000);
+// $('#lista-productos').fadeIn(4000);
+
+// $('#fa-trash').on('click', eliminar);
+// function eliminar(e){
+//     e.preventDefault();
+//     $('li').hide(4000);
+
+// }
+
 //escucho al boton enviar
 form.addEventListener('submit', submitForm);
 //funcion para crear el producto a comprar
@@ -50,7 +61,7 @@ function submitForm(e){
         const li = document.createElement('li');
         li.classList.add('row');
         li.dataset.id = listaP.length;
-        li.innerHTML = `<p class="mb-0 col-6 lista"><strong>${inputNombre.value}</strong> $${inputPrecio.value}</p><i class="fas fa-pen col-1"></i><i class="fas fa-trash col-1"></i>`
+        li.innerHTML = `<p class="mb-0 col-6 lista"><strong>  ${inputNombre.value.toUpperCase()}</strong> $${inputPrecio.value}</p><i class="fas fa-pen col-1"></i><i class="fas fa-trash col-1"></i>`
         if(inputNombre.value){
             listaProductos.appendChild(li)
         }
@@ -60,10 +71,8 @@ function submitForm(e){
             precio: inputPrecio.value,
             seccion: inputSeccion.value
         };
+        $('#lista-productos').fadeIn(3000);
         agregarImagen(producto.seccion);
-        
-        
-        
         listaP.push(producto);
         localStorage.setItem('listaP', JSON.stringify(listaP));
     }
@@ -84,8 +93,7 @@ function agregarImagen(seccion){
     } if(seccion === 'O'){
         img.setAttribute('src', 'images/otros.jpg')
     }
-    $('.lista').last().prepend(img);
-    
+    $('.lista').last().prepend(img);    
 }
 //funcion para imprimir en el html
 function cargarHtml(listadoProductos){
@@ -95,11 +103,13 @@ function cargarHtml(listadoProductos){
         const li = document.createElement('li');
         li.classList.add('row')
         li.dataset.id = producto.id;
-        li.innerHTML = `<p class="mb-0 col-6 lista"><strong>${producto.nombre}</strong> $${producto.precio}</p><i class="fas fa-pen col-1"></i><i class="fas fa-trash col-1"></i>`
+        li.innerHTML = `<p class="mb-0 col-6 lista"><strong>${producto.nombre.toUpperCase()}</strong> $${producto.precio}</p><i class="fas fa-pen col-1"></i><i class="fas fa-trash col-1"></i>`
         listaProductos.appendChild(li)
         agregarImagen(producto.seccion)
+        $('.lista').fadeIn(3000);
     });
 }
+
 listaProductos.addEventListener('click', clickProductos);
 //funciones para editar y/o eliminar un producto de la lista
 function clickProductos(e){

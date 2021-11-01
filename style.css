@@ -45,15 +45,17 @@ h2{
     display: flex;
     justify-content: center;}
 #lista-productos{
-    display: flex;
+    display: none;
     justify-content:center;
     flex-direction: column;
-  
 }
+
 .lista{
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-
+}
+.lista li{
+    display: none;
 }
 .row{
     justify-content: space-evenly;
