@@ -26,15 +26,33 @@ document.addEventListener('DOMContentLoaded', function(){
 $(document).ready(agregarImagen('listaP'));
 //ANIMACIONES
 $('h1').hide().fadeIn(3000);
-// $('#lista-productos').fadeIn(4000);
-
-// $('#fa-trash').on('click', eliminar);
-// function eliminar(e){
-//     e.preventDefault();
-//     $('li').hide(4000);
-
-// }
-
+//AJAX
+$('#mostrar').on('click', mostrar);
+function mostrar(e){
+    e.preventDefault();
+    $.ajax({
+        url:'JS/productos.json',
+        success: function(data){
+            console.log(data);
+            mostrarLista(data);
+        }} )
+        $('#mostrar').hide(1000);
+}
+function mostrarLista(productos){
+    let ul= document.querySelector('#cardsProductos');
+    productos.forEach(producto=>{
+        // ul.innerHTML = '';
+        ul.innerHTML += `<div class="card">
+        <img src="${producto.img}" class="imagen-producto">
+        <div class="info-card">
+            <h4>${producto.nombre}</h4>
+            <p>Stock:${producto.stock}</p>
+            <p class="precio"><span>$${producto.precio}</span></p>
+            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="${producto.id}">Agregar al Carrito</a>
+        </div>
+    </div>`
+    });
+}
 //escucho al boton enviar
 form.addEventListener('submit', submitForm);
 //funcion para crear el producto a comprar
@@ -134,6 +152,3 @@ function clickProductos(e){
         }
     }
 };
-
-
-

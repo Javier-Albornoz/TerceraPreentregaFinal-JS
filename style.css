@@ -32,12 +32,13 @@ h3{
 h2{
     color: black;
     font-family: 'Times New Roman', Times, serif;
-    padding: 30px;
+    padding: 10px;
 }
 .container{
     background-color: rgba(133, 129, 129, 0.795);
     border: 5px solid rgba(224, 6, 6, 0.781);
     border-radius: 7px;
+    margin: 20px;
 }
 .recepcion{
     background-color: black;
@@ -64,4 +65,67 @@ h2{
     width:30%;
     border-radius: 30px;
     padding: 7px;
+}
+footer{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    vertical-align:middle;
+    width: 100%;
+    background-color: black;
+}
+.redes{
+    color: white;
+}
+#mostrar{
+    width: auto;
+}
+.catalogoProductos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(119, 4, 4, 0.966);
+}
+#cardsProductos{
+    display: flex;
+    justify-content: center; 
+}
+#cardsProductos .card{
+background-color: #d1bbbb;
+}
+.imagen-producto{
+    width: 180px;
+}
+#productos{
+    display:flex;
+}
+.card {
+    width: 200px;
+    margin: 7px;
+    display: flex;
+}
+.info-card  {
+    padding: 10px 20px;
+    background-color: rgba(255, 0, 0, 0.411);
+}
+a.agregar-carrito {
+	background-color:rgba(119, 4, 4, 0.966);
+    text-decoration: none;
+    color: white;
+    border-radius: 17px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 7px;
+}
+
+.card h4 {
+    margin-bottom: 5px;
+}
+.info-card .precio {
+    text-decoration: none;
+    font-size: 18px;
+}
+.info-card .precio span {
+    font-weight: 700;
+    font-size: 22px;
 }
